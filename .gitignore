@@ -1,3 +1,7 @@
 # Ignore all .out and .exe files
 *.out
 *.exe
+
+
+# IDE/project-specific files (optional, adjust as needed)
+.vscode/
