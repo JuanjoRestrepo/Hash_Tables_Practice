@@ -36,11 +36,17 @@ public:
 
     void Print() // For debugging purposes
     {
+        bool first = true; // To track if we have printed the first entry
         for(int i = 0; i < Size; ++i)
         {
             if (m_Entries[i].Status == "occupied")
             {
-                std::cout << m_Entries[i].Data << ' ';
+                if (!first)
+                {
+                    std::cout << ' '; // Print a space before the first entry
+                }
+                std::cout << m_Entries[i].Data;
+                first = false;
             }
         }
         std::cout << std::endl;
