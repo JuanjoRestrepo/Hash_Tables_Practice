@@ -16,18 +16,22 @@ public:
     void Add(const std::string& entryString)
     {
         bool exists = Find(entryString);
-        if(exists)
+        if(!exists)
         {
-            return; // Entry already exists, no need to add it again
+            int insertIndex = GetInsertIndex(entryString);
+            m_Entries[insertIndex].Data = entryString; // Set the data of the entry
+            m_Entries[insertIndex].Status = "occupied"; // Set the status to occupied
         }
-        int insertIndex = GetInsertIndex(entryString);
-        m_Entries[insertIndex].Data = entryString; // Set the data of the entry
-        m_Entries[insertIndex].Status = "occupied"; // Set the status to occupied
     }
 
     void Delete(const std::string& entryString)
     {
-
+        int index;
+        bool exists = Find(entryString, &index);
+        if(exists)
+        {
+            m_Entries[index].Status = "tombstone";
+        }
     }
 
     void Print() // For debugging purposes
@@ -44,13 +48,17 @@ private:
         return entryString.back() - 'a';
     }
     
-    bool Find(const std::string& entryString)
+    bool Find(const std::string& entryString, int* outIndex = nullptr)
     {
         int index = GetIndex(entryString);
         while(true)
         {
             if(m_Entries[index].Data == entryString)
             {
+                if (outIndex) // if is not null
+                {
+                    *outIndex = index; // Set the output index to where the index was found
+                }
                 return true; // Entry found
             }
             if(m_Entries[index].Status == "never used")
