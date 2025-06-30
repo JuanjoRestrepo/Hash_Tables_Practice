@@ -1,12 +1,18 @@
 # Makefile minimal funcional
 
-all: programa
+EXEC := build/main.out
 
-programa: main.o
-	g++ -std=c++11 -O2 -Wall -o programa main.o
+all: $(EXEC)
 
-main.o: main.cpp
-	g++ -std=c++11 -O2 -Wall -c main.cpp -o main.o
+$(EXEC): src/main.cpp | build
+	g++ -std=c++11 -O2 -Wall -o $(EXEC) src/main.cpp
+
+build:
+	mkdir -p build
+
+run: $(EXEC)
+	./$(EXEC)
 
 clean:
-	rm -f programa main.o
+	rm -rf build
+
