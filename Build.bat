@@ -9,5 +9,5 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "✅ Build successful. Running program..."
+echo -e "\n✅ Build successful. Running program..."
 ./main.out

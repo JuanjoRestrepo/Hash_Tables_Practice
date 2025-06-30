@@ -1,7 +1,24 @@
-# Ignore all .out and .exe files
+# Compilación C/C++
 *.out
 *.exe
+*.o
+programa
 
+# Carpetas de build
+build/
+cmake-build*/
+build-*/
 
-# IDE/project-specific files (optional, adjust as needed)
+# macOS
+.DS_Store
+Icon?
+
+# IDE/Editor
 .vscode/
+.idea/
+*.swp
+*~
+
+# Logs / temporales
+*.log
+*.tmp

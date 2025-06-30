@@ -111,6 +111,7 @@ int main() {
 
     // 1. We separate the input into words
     std::string input;
+    std::cout << "\nType the entries: ";
     getline(std::cin, input);
 
     HashTable hashTable; // Create an instance of the HashTable
@@ -133,5 +134,6 @@ int main() {
         }
     }
 
-    hashTable.Print();
+    std::cout << "Output: ";
+    hashTable.Print(); // Print the entries in the hash table
 }
