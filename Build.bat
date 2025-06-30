@@ -5,7 +5,7 @@ g++ -std=c++11 -O2 -Wall -o main.out main.cpp
 
 # Exit if compilation failed
 if [ $? -ne 0 ]; then
-  echo "❌ Compilation failed."
+  echo -e "\n❌ Compilation failed."
   exit 1
 fi
 
