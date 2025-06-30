@@ -38,8 +38,12 @@ public:
     {
         for(int i = 0; i < Size; ++i)
         {
-            std::cout << i+1 << ". " << m_Entries[i].Data << "(" << m_Entries[i].Status << ")" << std::endl;
+            if (m_Entries[i].Status == "occupied")
+            {
+                std::cout << m_Entries[i].Data << ' ';
+            }
         }
+        std::cout << std::endl;
     }
 
 private:
@@ -95,8 +99,8 @@ private:
 int main() {
     /*
         Requirements:
-        Aapple Aorange Dapple Astrawberry
-        orange strawberry
+        Entry: Aapple Aorange Dapple Astrawberry
+        Output: orange strawberry
     */
 
     // 1. We separate the input into words
